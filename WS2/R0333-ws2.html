@@ -23,13 +23,15 @@
                 <li>when enter is clicked, add a text "Enter clicked" into the enter span below.</li>
             </ul>
             <div class="bordered">
-                <textarea v-model ="text"  @keyup.enter="addTextEnter()"></textarea>
+                <textarea  v-model ="text"  @keyup.enter="addTextEnter"></textarea>
+                <!-- @keyup.enter="myMethod" -->
+                <!-- @keyup="handleKeydown($event)" one more way to calculate number of inputs  -->
                 <span id="count">
                     <p> {{description}} </p>
 
                 </span>
                 <span id="enter">
-                    <p> {{addTextEnter}} </p>
+                    <p> {{message}} </p>
                 </span>
             </div>
         </div>
@@ -54,19 +56,26 @@
                         <th>Total</th>
                     </tr>
                     <tr>
-                        <td>Running</td>
+                        <td>Running</td> 
+                        <!-- use different values or Create [] with values -->
+
+                        <td><input type="number" v-model.number="workoutDuration" /></td>
                         <td><input type="number" /></td>
                         <td><input type="number" /></td>
                         <td><input type="number" /></td>
                         <td><input type="number" /></td>
                         <td><input type="number" /></td>
                         <td><input type="number" /></td>
-                        <td><input type="number" /></td>
-                        <td></td>
+                        <td>{{workoutDuration}}</td>
+                    </tr>
+                    <tr>
+                        <td>Gym</td>
+                        <td v-for="item in gym"><input type="number" v-model.number="item.value" /></td>
+                        <td> {{ gymTotal }}</td>
                     </tr>
                     <tr>
                         <td colspan="8"><strong>Week</strong></td>
-                        <td><strong></strong></td>
+                        <td><strong>{{RunTotal}}</strong></td>
                     </tr>
                 </table>
                 <p>Your workout effort this week: <strong></strong></p>
@@ -79,12 +88,13 @@
             <div v-show="isOpen">
                 <p>Create a simple currency exchange calculator using a free exchange rate API (for example <a href="https://exchangeratesapi.io/" target="_blank">https://exchangeratesapi.io/).</a></p>
                 <div class="bordered">
-                    <button>Get rates</button>
-                    <p>Current exchange rate for GBP: <strong></strong></p>
-                    <p>Current exchange rate for USD: <strong></strong></p>
-                    <label>Price in EUR </label><input type="number"></input>
-                    <p>Price  € = £</p>
-                    <p>Price  € = $</p>
+                    <button type="button" name ="button" @click="getAnswer2">Get rates/answer</button>
+                    <p>Current exchange rate for GBP: {{GBP}}<strong></strong></p>
+                    <p>Current exchange rate for USD: {{USD}}<strong></strong></p>
+                    <label>Price in EUR </label><input type="number"v-model="price"></input>
+                    <p>Price {{price}} € = {{price*GBP}}£</p>
+                    <p>Price {{price}} € = {{price*USD}}$</p>
+                    
                 </div>
             </div>
         </div>
@@ -120,6 +130,9 @@
         </div>
     </div>
     <footer>&copy; Meija Lohiniva Seinäjoki UAS</footer>
+    <!-- Ajax using for ex:You can use an external library such as Axios (https://github.com/axios/axios).
+    Using a CDN <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
     <!-- 1. Vue.js added here -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="R0333-ws2.js"></script>
