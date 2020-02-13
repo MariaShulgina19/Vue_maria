@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>WS1/R0333 Vue.js</title>
+    <link rel="stylesheet" href="R0333.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon"/>
+</head>
+<body>
+    <img src="vue_logo.png" alt="vue.js" class="logo"/>
+    <h1>R0333 - Project Web App Development with a Javascript Framework</h1>
+    <h2>Vue.js: Workshop 1 - Basics</h2>
+    <hr/>
+    <div id="exercise1">
+        <h3 v-on:click="isOpen = !isOpen">Workshops</h3>
+        <div v-show="isOpen">
+            <ul>
+              <li><a href="WS1/R0333-ws1.html">Workshop 1 - Basics</a></li>
+              <li><a href="WS2/R0333-ws2.html">Workshop 2 - Events, Computed properties, AJAX, Components, Mixins, Custom Directives</a></li>
+              <li><a href="WS3/R0333-ws3.html">Workshop 3 - Templates & Vue CLI</a></li>
+              <li><a href="file:///C:/Users/k5000620/github/vue/WS3-CLI/workshop/public/index.html">Workshop 3 CLI</a></li>
+        </div>
+    </div>
+    <footer>&copy; Meija Lohiniva Seinäjoki UAS</footer>
+    <!-- 1. Vue.js added here -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="R0333-ws1.js"></script>
+</body>
